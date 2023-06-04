@@ -47,18 +47,16 @@ class Assignment1 extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.orange,
-        child: const Icon(Icons.navigation),
+        child: const Text('PN:1'),
 
       ),
-      bottomNavigationBar: Container(
-        color: Colors.orange,
-        height: 80,
-        child: Row(children: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.pages_sharp))
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          const BottomNavigationBarItem(icon: Icon(Icons.pages_sharp), label: 'Page 2'),
+          const BottomNavigationBarItem(icon: Icon(Icons.pages_sharp), label: 'Page 2'),
+          const BottomNavigationBarItem(icon: Icon(Icons.pages_sharp), label: 'Page 3')
         ],
-        ),
       ),
-
       );
 
   }
