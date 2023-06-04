@@ -30,7 +30,9 @@ class Assignment1 extends StatelessWidget {
         title: const Text("Assignment1"),
         centerTitle: true,
         backgroundColor: Colors.orange,
+
       ),
+
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,9 +41,27 @@ class Assignment1 extends StatelessWidget {
               'Page number 1',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
+
           ],
+
         ),
       ),
-    );
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.orange,
+        child: const Icon(Icons.navigation),
+
+      ),
+      bottomNavigationBar: Container(
+        color: Colors.orange,
+        height: 80,
+        child: Row(children: [
+          IconButton(onPressed: (){}, icon: const Icon(Icons.pages_sharp))
+        ],
+        ),
+      ),
+
+      );
+
   }
 }
