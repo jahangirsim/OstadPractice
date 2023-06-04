@@ -41,9 +41,7 @@ class Assignment1 extends StatelessWidget {
               'Page number 1',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-
           ],
-
         ),
       ),
       floatingActionButton: FloatingActionButton(
