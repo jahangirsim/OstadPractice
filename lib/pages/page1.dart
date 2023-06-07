@@ -7,9 +7,9 @@ class Page1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Assignment1"),
+          title: const Text("Assignment1 Page1"),
           centerTitle: true,
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.green,
         ),
         body: const Center(
           child: Column(

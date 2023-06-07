@@ -7,21 +7,26 @@ class Page3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Assignment1"),
+          title: const Text("Assignment1 Page3"),
           centerTitle: true,
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.red,
         ),
         body: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Page number 1',
+                'Page number 3',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ],
           ),
-        )
+
+        ),
+      floatingActionButton: FloatingActionButton(onPressed:(){},
+        backgroundColor: Colors.red,
+        child: const Text('PN3'),
+      ),
     );
   }
 }

@@ -4,85 +4,108 @@ import 'package:assignment_1_3_page/pages/page3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-//ignore: must_be_immutable
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-   MyApp({Key? key}) : super(key: key);
-
-  int currentPage = 0;
-List<Widget> pages= [
-  const Page1(),
-  const Page2(),
-  const Page3()
-];
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Assignment1(),
-      // actions: Drawer(backgroundColor: Colors.orange,
-      // child: ListView(padding: EdgeInsets.zero,
-      // children: const <Widget>[
-      //   DrawerHeader(child: Text('Assignment1'))
-      // ],)),
+    return MaterialApp(
+      home: HomeScreen(),
     );
   }
 }
 
-class Assignment1 extends StatelessWidget {
-  const Assignment1({Key? key}) : super(key: key);
+//ignore: must_be_immutable
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentPage = 0;
+
+  List<Widget> pages = const [Page1(), Page2(), Page3()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Assignment1"),
-        centerTitle: true,
         backgroundColor: Colors.orange,
-toolbarHeight: 55,
-elevation: 10,
+        title: const Text('Module 5 Assignment1'),
+        centerTitle: true,
       ),
-
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      drawer: Drawer(
+        backgroundColor: Colors.orange,
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: [
-            Text(
-              'Page number 1',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            const DrawerHeader(
+              child: Text('Module5 Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Page 1'),
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const Page1();
+                }));
+              },
+            ),
+            ListTile(
+              title: const Text('Page 2'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const Page2();
+                    },
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Page 3'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const Page3();
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.orange,
-        child: const Text('PN:1'),
-
-      ),
+      body: pages.elementAt(currentPage),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.orange,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.pages_sharp), label: 'Page 1'),
-          BottomNavigationBarItem(icon: Icon(Icons.pages_sharp), label: 'Page 2'),
-          BottomNavigationBarItem(icon: Icon(Icons.pages_sharp), label: 'Page 3')
+          BottomNavigationBarItem(
+              icon: Icon(Icons.pages_outlined), label: "Page1"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.pages_rounded), label: "Page2"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.pages_sharp), label: "Page3")
         ],
-        onTap: (int index){
-          if (index == 0){
-
-          }
-          if (index == 1){
-
-          }
-          if (index == 2){
-
-          }
-      }
+        currentIndex: currentPage,
+          onTap: (int index){
+          setState(() {
+            currentPage = index;
+          });
+          },
       ),
-      );
-
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.orange,
+        child: const Text('FP'),
+      ),
+    );
   }
 }
